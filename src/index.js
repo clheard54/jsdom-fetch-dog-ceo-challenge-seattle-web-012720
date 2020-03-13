@@ -41,14 +41,18 @@ document.addEventListener("DOMContentLoaded", function() {
             breedList.appendChild(li);
     }
 
+
     const select = document.getElementById("breed-dropdown")
     select.addEventListener("change", event => {
         document.querySelectorAll('li').forEach(name => {
-            name.style = "visibility: visible"})
+            name.style = "display: list-item"})
         let letter = event.target.value
         document.querySelectorAll('li').forEach(name => {
-            if (name.innerText[0] != letter) {
-                name.style = "visibility: hidden"
+            if (letter == '') {
+                name.style = "display: list-item";
+            }
+            else if (name.innerText[0] != letter) {
+                name.style = "display: none"
             }
         })
     })
